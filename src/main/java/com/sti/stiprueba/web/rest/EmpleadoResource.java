@@ -168,11 +168,17 @@ public class EmpleadoResource {
      *
      * @param id the id of the empleado to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     * @throws Throwable
      */
     @DeleteMapping("/empleados/{id}")
-    public ResponseEntity<Void> deleteEmpleado(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteEmpleado(@PathVariable Long id) throws URISyntaxException {
         log.debug("REST request to delete Empleado : {}", id);
-        empleadoService.delete(id);
+        try {
+            empleadoService.delete(id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            throw new BadRequestAlertException("el usuario tiene actividades asignadas", ENTITY_NAME, "employedHasTask");
+        }
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

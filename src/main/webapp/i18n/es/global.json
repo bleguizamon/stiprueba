@@ -122,6 +122,7 @@
     }
   },
   "error": {
+    "employedHasTask": "El empleano no se puede eliminar, tiene actividades asignadas",
     "internalServerError": "Error interno en el servidor",
     "server.not.reachable": "Servidor no accesible",
     "url.not.found": "No existe",

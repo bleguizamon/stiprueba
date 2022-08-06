@@ -1,19 +1,17 @@
 package com.sti.stiprueba.service.impl;
 
+import com.sti.stiprueba.domain.Actividad;
+import com.sti.stiprueba.repository.ActividadRepository;
+import com.sti.stiprueba.service.ActividadService;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.sti.stiprueba.domain.Actividad;
-import com.sti.stiprueba.repository.ActividadRepository;
-import com.sti.stiprueba.service.ActividadService;
 
 /**
  * Service Implementation for managing {@link Actividad}.
@@ -40,6 +38,11 @@ public class ActividadServiceImpl implements ActividadService {
     @Override
     public Actividad update(Actividad actividad) {
         log.debug("Request to save Actividad : {}", actividad);
+        int days = 0;
+        if (actividad.getFechaFin().isBefore(Instant.now())) {
+            days = (int) ChronoUnit.DAYS.between(actividad.getFechaFin(), Instant.now());
+        }
+        actividad.setDiasRetraso(days);
         return actividadRepository.save(actividad);
     }
 
@@ -63,11 +66,10 @@ public class ActividadServiceImpl implements ActividadService {
                     existingActividad.setFechaFin(actividad.getFechaFin());
                 }
                 if (actividad.getDiasRetraso() != null) {
-                	int days=0;
-                	if(actividad.getFechaFin().isAfter(Instant.now())) {
-
-                		days = (int) ChronoUnit.DAYS.between(Instant.now(),actividad.getFechaFin());
-                	}
+                    int days = 0;
+                    if (actividad.getFechaFin().isBefore(Instant.now())) {
+                        days = (int) ChronoUnit.DAYS.between(actividad.getFechaFin(), Instant.now());
+                    }
                     existingActividad.setDiasRetraso(days);
                 }
 
@@ -80,56 +82,45 @@ public class ActividadServiceImpl implements ActividadService {
     @Transactional(readOnly = true)
     public Page<Actividad> findAll(Pageable pageable) {
         log.debug("Request to get all Actividads");
-       
+
         Page<Actividad> actividades = actividadRepository.findAll(pageable);
-       
+
         calculateLateDays(actividades);
-     
+
         return actividades;
     }
 
     public Page<Actividad> findAllWithEagerRelationships(Pageable pageable) {
-        
+        Page<Actividad> actividades = actividadRepository.findAllWithEagerRelationships(pageable);
 
-    	Page<Actividad> actividades = actividadRepository.findAllWithEagerRelationships(pageable);
-    	
-    	calculateLateDays(actividades);
-        
-     
+        calculateLateDays(actividades);
+
         return actividades;
-    	
-    	//return actividadRepository.findAllWithEagerRelationships(pageable);
     }
 
-	private void calculateLateDays(Page<Actividad> actividades) {
-
-    	for (Actividad actividad : actividades) {
-
+    private void calculateLateDays(Page<Actividad> actividades) {
+        for (Actividad actividad : actividades) {
             int days = 0;
-        	if(actividad.getFechaFin().isBefore(Instant.now())) {
+            if (actividad.getFechaFin().isBefore(Instant.now())) {
+                days = (int) ChronoUnit.DAYS.between(actividad.getFechaFin(), Instant.now());
+            }
 
-        		days = (int) ChronoUnit.DAYS.between(actividad.getFechaFin(),Instant.now());
-        	}
-            
-          
             actividad.setDiasRetraso(days);
-            
         }
-	}
+    }
 
     @Override
     @Transactional(readOnly = true)
     public Optional<Actividad> findOne(Long id) {
         log.debug("Request to get Actividad : {}", id);
-        
-        Optional<Actividad> actividad= actividadRepository.findOneWithEagerRelationships(id);
-        
-      	int days=0;
-    	if(actividad.get().getFechaFin().isAfter(Instant.now())) {
 
-    		days = (int) ChronoUnit.DAYS.between(Instant.now(),actividad.get().getFechaFin());
-    		actividad.get().setDiasRetraso(days);
-    	}
+        Optional<Actividad> actividad = actividadRepository.findOneWithEagerRelationships(id);
+
+        int days = 0;
+        if (actividad.get().getFechaFin().isBefore(Instant.now())) {
+            days = (int) ChronoUnit.DAYS.between(actividad.get().getFechaFin(), Instant.now());
+            actividad.get().setDiasRetraso(days);
+        }
         return actividadRepository.findOneWithEagerRelationships(id);
     }
 

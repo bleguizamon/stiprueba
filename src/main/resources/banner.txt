@@ -1,10 +1,10 @@
+ ${AnsiColor.GREEN}██████╗ ${AnsiColor.RED}██╗     ███████╗ ██████╗ ██╗   ██╗██╗███████╗ █████╗ ███╗   ███╗ ██████╗ ███╗   ██╗
+ ${AnsiColor.GREEN}██╔══██╗${AnsiColor.RED}██║     ██╔════╝██╔════╝ ██║   ██║██║╚══███╔╝██╔══██╗████╗ ████║██╔═══██╗████╗  ██║
+ ${AnsiColor.GREEN}██████╔╝${AnsiColor.RED}██║     █████╗  ██║  ███╗██║   ██║██║  ███╔╝ ███████║██╔████╔██║██║   ██║██╔██╗ ██║
+ ${AnsiColor.GREEN}██╔══██╗${AnsiColor.RED}██║     ██╔══╝  ██║   ██║██║   ██║██║ ███╔╝  ██╔══██║██║╚██╔╝██║██║   ██║██║╚██╗██║
+ ${AnsiColor.GREEN}██████╔╝${AnsiColor.RED}███████╗███████╗╚██████╔╝╚██████╔╝██║███████╗██║  ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║
+ ${AnsiColor.GREEN}╚═════╝ ${AnsiColor.RED}╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                                          
 
-  ${AnsiColor.GREEN}      ██╗${AnsiColor.RED} ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ███████╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ████████║    ██║    ███████╔╝ ╚█████╗     ██║    ██████╗   ███████╔╝
-  ${AnsiColor.GREEN}██╗   ██║${AnsiColor.RED} ██╔═══██║    ██║    ██╔════╝   ╚═══██╗    ██║    ██╔═══╝   ██╔══██║
-  ${AnsiColor.GREEN}╚██████╔╝${AnsiColor.RED} ██║   ██║ ████████╗ ██║       ██████╔╝    ██║    ████████╗ ██║  ╚██╗
-  ${AnsiColor.GREEN} ╚═════╝ ${AnsiColor.RED} ╚═╝   ╚═╝ ╚═══════╝ ╚═╝       ╚═════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝
-
-${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: https://www.jhipster.tech ::${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_BLUE}:: bleguizamon@outlook.com 🤓  :: Running Spring Boot ${spring-boot.version} ::
+:: https://www.linkedin.com/in/bladimir-leguizam%C3%B3n-arboleda-135225116/ ::${AnsiColor.DEFAULT}
