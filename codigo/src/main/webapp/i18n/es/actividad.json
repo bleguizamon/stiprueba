@@ -1,0 +1,29 @@
+{
+  "stipruebaApp": {
+    "actividad": {
+      "home": {
+        "title": "Actividades",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Actividad",
+        "createOrEditLabel": "Crear o editar Actividad",
+        "notFound": "Ningún Actividads encontrado"
+      },
+      "created": "Un nuevo Actividad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Actividad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Actividad ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Actividad {{ id }}?"
+      },
+      "detail": {
+        "title": "Actividad"
+      },
+      "id": "ID",
+      "descripcion": "Descripcion",
+      "estatus": "Estatus",
+      "fechaInicio": "Fecha creación",
+      "fechaFin": "Fecha Fin Estimada ",
+      "diasRetraso": "Dias Retraso",
+      "empleado": "Empleado"
+    }
+  }
+}
