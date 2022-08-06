@@ -1,0 +1,9 @@
+{
+  "stipruebaApp": {
+    "Estatus": {
+      "null": "",
+      "REALIZADA": "REALIZADA",
+      "PENDIENTE": "PENDIENTE"
+    }
+  }
+}

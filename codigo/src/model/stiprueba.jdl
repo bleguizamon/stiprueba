@@ -1,0 +1,42 @@
+
+entity Actividad {
+	descripcion String required,
+    estatus Estatus,
+    fechaInicio Instant,
+    fechaFin Instant
+
+
+}
+
+enum Estatus {
+    REALIZADA, PENDIENTE
+}
+
+entity Empleado{
+   nombre String,
+   apellido String,
+   nickname String,
+   email String,
+   telefono String
+
+}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Empleado to Actividad{empleado(nickname)}
+
+}
+
+
+
+// Set pagination options
+
+paginate Actividad, Empleado with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
